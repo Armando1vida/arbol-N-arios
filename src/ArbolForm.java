@@ -1,5 +1,8 @@
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /*
@@ -12,7 +15,7 @@ import javax.swing.JOptionPane;
  * @author ArmandoPC
  */
 public class ArbolForm extends javax.swing.JFrame {
-    
+
     Familia arbol;
 
     /**
@@ -24,7 +27,7 @@ public class ArbolForm extends javax.swing.JFrame {
         this.btnAddHijo.setEnabled(false);
         this.comboboxPadre.setEnabled(false);
         this.textHijo.setEnabled(false);
-        
+
     }
 
     /**
@@ -191,9 +194,15 @@ public class ArbolForm extends javax.swing.JFrame {
             arbol.verHijosRecursivo(arbol.getRaiz());
             this.LlenarCombo(arbol.getListaPesona());
             this.textHijo.setText("");
+            try {
+                arbol.generarArchivo(arbol.generateFileData(arbol.getRaiz()));
+                arbol.GenerateImg();
+            } catch (IOException ex) {
+                Logger.getLogger(ArbolForm.class.getName()).log(Level.SEVERE, null, ex);
+            }
         } else {
             JOptionPane.showMessageDialog(this.getRootPane(), "Error al ingresar raiz");
-            
+
         }
 
     }//GEN-LAST:event_btnAddHijoActionPerformed
@@ -209,11 +218,17 @@ public class ArbolForm extends javax.swing.JFrame {
             this.textHijo.setEnabled(true);
             arbol.verHijosRecursivo(arbol.getRaiz());
             this.LlenarCombo(arbol.getListaPesona());
+            try {
+                arbol.generarArchivo(arbol.generateFileData(arbol.getRaiz()));
+                arbol.GenerateImg();
+            } catch (IOException ex) {
+                Logger.getLogger(ArbolForm.class.getName()).log(Level.SEVERE, null, ex);
+            }
         } else {
             JOptionPane.showMessageDialog(this.getRootPane(), "Error al ingresar raiz");
         }
     }//GEN-LAST:event_btnAddRaizActionPerformed
-    
+
     public void LlenarCombo(List<Persona> g) {
         this.comboboxPadre.removeAllItems();
         for (Persona es : g) {

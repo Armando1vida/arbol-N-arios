@@ -77,7 +77,7 @@ public class Run {
         a.addHijoRecursivo(raiz, "Yuri 2.2", "Yuri 2");
         a.addHijoRecursivo(raiz, "Yuri 2.2.1", "Yuri 2.2");
         a.addHijoRecursivo(raiz, "Yuri 2.2.2", "Yuri 2.2");
-        System.out.println(a.generateFile(raiz));
+        System.out.println(a.generateFileData(raiz));
 
 //        String json = a.toString(raiz);
 //        json = json.replaceAll("},]", "}]");
