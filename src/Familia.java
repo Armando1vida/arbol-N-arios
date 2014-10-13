@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -9,8 +12,23 @@
  */
 public class Familia {
 
+    /**
+     * @return the tostring
+     */
+    public static String getTostring() {
+        return tostring;
+    }
+
+    /**
+     * @param aTostring the tostring to set
+     */
+    public static void setTostring(String aTostring) {
+        tostring = aTostring;
+    }
+
     private Persona raiz;
-    public static String tostring = "";
+    private static String tostring = "";
+    private List<Persona> listaPesona = new ArrayList<Persona>();
 
     /**
      * @return the raiz
@@ -44,7 +62,8 @@ public class Familia {
     }
 
     public void verHijosRecursivo(Persona raiz) {
-        System.out.println(raiz.getNombre());
+        getListaPesona().add(raiz);
+//        System.out.println(raiz.getNombre());
         for (Persona hijo : raiz.getHijos()) {
             verHijosRecursivo(hijo);
         }
@@ -61,4 +80,19 @@ public class Familia {
         r = r + "\n}";
         return r;
     }
+
+    /**
+     * @return the listaPesona
+     */
+    public List<Persona> getListaPesona() {
+        return listaPesona;
+    }
+
+    /**
+     * @param listaPesona the listaPesona to set
+     */
+    public void setListaPesona(List<Persona> listaPesona) {
+        this.listaPesona = listaPesona;
+    }
+
 }
