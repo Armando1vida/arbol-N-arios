@@ -92,5 +92,6 @@ public class Nodo {
     public void verNodo() {
         System.out.println("{" + this.info + "}");
     }
+    
 
 }

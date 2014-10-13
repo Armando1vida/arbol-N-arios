@@ -53,4 +53,12 @@ public class Familia {
     public String toString(Persona p) {
         return p.toString(p);
     }
+
+    public String generateFile(Persona raiz) {
+        String r = "digraph structs {\n";
+        r = r + raiz.verInfo(raiz) + "\n";
+        r = r + raiz.verTransicion(raiz) + "\n";
+        r = r + "\n}";
+        return r;
+    }
 }

@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Random;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -12,13 +13,63 @@ import java.util.ArrayList;
 public class Persona {
 
     private String nombre;
+    private String ID;
     private String foto;
     private ArrayList<Persona> hijos;
-    public static String tostring = "";
+    private static String tostring = "";
+    private static String toViewInfo = "";
+    private static String toViewTrans = "";
+
+    /**
+     * @return the tostring
+     */
+    public static String getTostring() {
+        return tostring;
+    }
+
+    /**
+     * @param aTostring the tostring to set
+     */
+    public static void setTostring(String aTostring) {
+        tostring = aTostring;
+    }
+
+    /**
+     * @return the toViewInfo
+     */
+    public static String getToViewInfo() {
+        return toViewInfo;
+    }
+
+    /**
+     * @param aToViewInfo the toViewInfo to set
+     */
+    public static void setToViewInfo(String aToViewInfo) {
+        toViewInfo = aToViewInfo;
+    }
+
+    /**
+     * @return the toViewTrans
+     */
+    public static String getToViewTrans() {
+        return toViewTrans;
+    }
+
+    /**
+     * @param aToViewTrans the toViewTrans to set
+     */
+    public static void setToViewTrans(String aToViewTrans) {
+        toViewTrans = aToViewTrans;
+    }
 
     public Persona(String nombre) {
         this.hijos = new ArrayList<>();
         this.nombre = nombre;
+        Random r = new Random();
+        int valorDado = r.nextInt(100000) + 1;
+        this.ID = valorDado + "";
+//        this.ID = java.util.UUID.randomUUID().toString();
+//        this.ID=this.ID.replaceAll("-", "");
 
     }
 
@@ -67,18 +118,52 @@ public class Persona {
     public void addHijo(Persona hijo) {
 //        this.getHijos().add(hijo);
 
-        this.hijos.add(hijo);
+        this.getHijos().add(hijo);
 //        this.setHijos(this.getHijos());
     }
 
     public String toString(Persona p) {
-        this.tostring = this.tostring + "{\"nombre\":\"" + p.getNombre() + "\"," + "\"hijos\":[";
-        for (Persona hijo : p.hijos) {
+        this.setTostring(this.getTostring() + "{\"nombre\":\"" + p.getNombre() + "\"," + "\"hijos\":[");
+        for (Persona hijo : p.getHijos()) {
             this.toString(hijo);
 //            p.hijos.
         }
-        this.tostring = this.tostring + "]},";
-        return this.tostring;
+        this.setTostring(this.getTostring() + "]},");
+        return this.getTostring();
+    }
+//h1 [margin=0 shape=box, style=filled, fillcolor=white, color=blue, label=<<TABLE border="0" cellborder="0">
+//                       <TR><TD width="60" height="50" fixedsize="true"><IMG SRC="C:\Capturas.PNG" scale="true"/></TD><td><font point-size="10">protein2ppw</font></td></TR>
+//              </TABLE>>];
+
+    public String verInfo(Persona p) {
+        this.setToViewInfo(this.getToViewInfo() + "\n" + p.getID() + " [margin=0 shape=box, style=filled, fillcolor=white, color=blue, label=<<TABLE border=\"0\" cellborder=\"0\"><TR><TD width=\"60\" height=\"50\" fixedsize=\"true\"><IMG SRC=\"C:\\Capturas.PNG\" scale=\"true\"/></TD><td><font point-size=\"10\">" + p.getNombre() + "</font></td></TR></TABLE>>];");
+        for (Persona hijo : p.getHijos()) {
+            this.verInfo(hijo);
+        }
+        return this.getToViewInfo();
+
     }
 
+    public String verTransicion(Persona p) {
+        this.setToViewTrans(this.getToViewTrans() + "\n");
+        for (Persona hijo : p.getHijos()) {
+            this.setToViewTrans(this.getToViewTrans() + p.getID() + " -> " + hijo.getID() + " ;");
+            this.verTransicion(hijo);
+        }
+        return this.getToViewTrans();
+    }
+
+    /**
+     * @return the ID
+     */
+    public String getID() {
+        return "struct"+ID;
+    }
+
+    /**
+     * @param ID the ID to set
+     */
+    public void setID(String ID) {
+        this.ID = ID;
+    }
 }
