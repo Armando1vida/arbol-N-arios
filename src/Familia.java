@@ -33,6 +33,7 @@ public class Familia {
     private Persona raiz;
     private static String tostring = "";
     private List<Persona> listaPesona = new ArrayList<Persona>();
+    public static String cambio = "";
 
     /**
      * @return the raiz
@@ -53,11 +54,22 @@ public class Familia {
     public void addHijoRecursivo(Persona raiz, String nombre_hijo, String nombre_padre) {
         Persona hijo = new Persona(nombre_hijo);
         if (raiz.getNombre().equals(nombre_padre)) {
+
             raiz.addHijo(hijo);
+            if (cambio.equals("")) {
+                cambio = "1";
+            } else {
+                cambio = "";
+            }
         } else {
             for (int i = 0; i < raiz.getHijos().size(); i++) {
                 if (raiz.getNombre().equals(nombre_padre)) {
                     raiz.addHijo(hijo);
+                    if (cambio.equals("")) {
+                        cambio = "1";
+                    } else {
+                        cambio = "";
+                    }
                 } else {
                     addHijoRecursivo(raiz.getHijos().get(i), nombre_hijo, nombre_padre);
                 }
@@ -115,7 +127,7 @@ public class Familia {
         bw.close();
     }
 
-    public void GenerateImg() {
+    public Boolean GenerateImg() {
         try {
 //
 //path del dot.exe,por lo general es la misma, pero depende de donde hayas instalado el paquete de Graphviz
@@ -124,10 +136,11 @@ public class Familia {
             String fileInputPath = "C:\\Users\\ArmandoPC\\Documents\\NetBeansProjects\\arbol-N-arios\\data.txt ";
 
 //path de salida del grafo, es decir el path de la imagen que vamos a crear con graphviz
-            String fileOutputPath = "C:\\Users\\ArmandoPC\\Documents\\NetBeansProjects\\arbol-N-arios\\arbol.jpg";
+//            String fileOutputPath = getClass().getResource("/recurso/arbol.png").toString();
+            String fileOutputPath = "C:\\Users\\ArmandoPC\\Documents\\NetBeansProjects\\arbol.png";
 
 //tipo de imagen de salida, en este caso es jpg
-            String tParam = "-Tjpg";
+            String tParam = "-Tpng";
 
             String tOParam = "-o";
 
@@ -145,9 +158,11 @@ public class Familia {
 
 //Ahora ejecutamos como lo hacemos en consola
             rt.exec(cmd);
+            return true;
 
         } catch (Exception ex) {
             ex.printStackTrace();
+            return false;
         } finally {
         }
     }

@@ -1,8 +1,13 @@
+import com.sun.scenario.effect.impl.ImagePool;
+import java.awt.Image;
+import java.awt.image.ImageProducer;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /*
@@ -17,6 +22,7 @@ import javax.swing.JOptionPane;
 public class ArbolForm extends javax.swing.JFrame {
 
     Familia arbol;
+    ImageIcon Imagen = new ImageIcon();
 
     /**
      * Creates new form ArbolForm
@@ -27,7 +33,11 @@ public class ArbolForm extends javax.swing.JFrame {
         this.btnAddHijo.setEnabled(false);
         this.comboboxPadre.setEnabled(false);
         this.textHijo.setEnabled(false);
-
+//        txtPane.setContentType("text/html");
+//        ImageIcon Img = new ImageIcon("C:\\Users\\ArmandoPC\\Documents\\NetBeansProjects\\arbol-N-arios\\arbol.png");
+//        this.panelImg.setIcon(Img);
+//        Imagen = new Imagen();
+//        this.panelImg.repaint();
     }
 
     /**
@@ -40,7 +50,8 @@ public class ArbolForm extends javax.swing.JFrame {
     private void initComponents() {
 
         jFileChooser1 = new javax.swing.JFileChooser();
-        jLayeredPane1 = new javax.swing.JLayeredPane();
+        panelImagen = new javax.swing.JLayeredPane();
+        label = new javax.swing.JLabel();
         jLayeredPane2 = new javax.swing.JLayeredPane();
         jLabel1 = new javax.swing.JLabel();
         comboboxPadre = new javax.swing.JComboBox();
@@ -52,18 +63,23 @@ public class ArbolForm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLayeredPane1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        panelImagen.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
-        jLayeredPane1.setLayout(jLayeredPane1Layout);
-        jLayeredPane1Layout.setHorizontalGroup(
-            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 650, Short.MAX_VALUE)
+        javax.swing.GroupLayout panelImagenLayout = new javax.swing.GroupLayout(panelImagen);
+        panelImagen.setLayout(panelImagenLayout);
+        panelImagenLayout.setHorizontalGroup(
+            panelImagenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelImagenLayout.createSequentialGroup()
+                .addGap(0, 251, Short.MAX_VALUE)
+                .addComponent(label, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-        jLayeredPane1Layout.setVerticalGroup(
-            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+        panelImagenLayout.setVerticalGroup(
+            panelImagenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelImagenLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(label, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
+        panelImagen.setLayer(label, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLayeredPane2.setBackground(new java.awt.Color(153, 153, 153));
         jLayeredPane2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -118,8 +134,7 @@ public class ArbolForm extends javax.swing.JFrame {
                 .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jLayeredPane2Layout.createSequentialGroup()
                         .addGap(59, 59, 59)
-                        .addComponent(btnAddHijo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btnAddHijo))
                     .addGroup(jLayeredPane2Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnAddRaiz)))
@@ -141,11 +156,11 @@ public class ArbolForm extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(textHijo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
+                .addGap(101, 101, 101)
                 .addComponent(btnAddHijo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAddRaiz)
-                .addGap(227, 227, 227))
+                .addGap(161, 161, 161))
         );
         jLayeredPane2.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane2.setLayer(comboboxPadre, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -163,7 +178,7 @@ public class ArbolForm extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLayeredPane2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelImagen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -172,7 +187,7 @@ public class ArbolForm extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLayeredPane2)
-                    .addComponent(jLayeredPane1))
+                    .addComponent(panelImagen))
                 .addContainerGap())
         );
 
@@ -196,7 +211,22 @@ public class ArbolForm extends javax.swing.JFrame {
             this.textHijo.setText("");
             try {
                 arbol.generarArchivo(arbol.generateFileData(arbol.getRaiz()));
-                arbol.GenerateImg();
+                if (arbol.GenerateImg()) {
+//                    this.panelImagen.createImage(new ImageProducer("C:\\Users\\ArmandoPC\\Documents\\NetBeansProjects\\arbol.png"));
+//                    ImageIcon h = new ImageIcon("C:\\Users\\ArmandoPC\\Documents\\NetBeansProjects\\arbol.png");
+//                    this.panelImagen.getGraphics().drawImage(h.getImage(), 0, 0, null);
+//                    this.panelImagen.setIcon(new ImageIcon("C:\\Users\\ArmandoPC\\Documents\\NetBeansProjects\\arbol.png"));
+                    this.label.setIcon(new ImageIcon("C:\\Users\\ArmandoPC\\Documents\\NetBeansProjects\\arbol.png"));
+
+//                    try {
+//                        Thread.sleep(1500);
+//                    } catch (InterruptedException ex) {
+//                        Logger.getLogger(ArbolForm.class.getName()).log(Level.SEVERE, null, ex);
+//                    }
+//                    this.txtPane.setText("");
+//                    this.txtPane.setText("<html><head></head><img src=" + getClass().getResource("/recurso/arbol"+arbol.cambio+".png").toString() + "></html>");
+//                    this.txtPane.repaint();
+                }
             } catch (IOException ex) {
                 Logger.getLogger(ArbolForm.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -220,7 +250,21 @@ public class ArbolForm extends javax.swing.JFrame {
             this.LlenarCombo(arbol.getListaPesona());
             try {
                 arbol.generarArchivo(arbol.generateFileData(arbol.getRaiz()));
-                arbol.GenerateImg();
+                if (arbol.GenerateImg()) {
+//                    try {
+//                        Thread.sleep(3000);
+//                    } catch (InterruptedException ex) {
+//                        Logger.getLogger(ArbolForm.class.getName()).log(Level.SEVERE, null, ex);
+//                    }
+//                    this.txtPane.setText("");
+//                    this.txtPane.setText("<html><head></head><img src=" + getClass().getResource("/recurso/arbol"+arbol.cambio+".png").toString() + "></html>");
+//                    this.txtPane.repaint();
+                    this.label.setIcon(new ImageIcon("C:\\Users\\ArmandoPC\\Documents\\NetBeansProjects\\arbol.png"));
+//                    this.label.setIcon(Imagen);
+                }
+//                arbol.GenerateImg();
+//                this.txtPane.setText("<html><head></head><img src=" + getClass().getResource("/recurso/arbol.png").toString() + "></html>");
+//                this.txtPane.repaint();
             } catch (IOException ex) {
                 Logger.getLogger(ArbolForm.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -279,8 +323,10 @@ public class ArbolForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JLayeredPane jLayeredPane2;
+    private javax.swing.JLabel label;
+    private javax.swing.JLayeredPane panelImagen;
     private javax.swing.JTextField textHijo;
     // End of variables declaration//GEN-END:variables
+
 }
