@@ -5,6 +5,8 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import javax.imageio.ImageIO;
@@ -121,7 +123,10 @@ public class Familia {
     }
 
     public void generarArchivo(String data) throws IOException {
-        String ruta = "data.txt";
+        String to = System.getProperty("user.dir"); // recupero el directorio del proyecto
+        String separator = System.getProperty("file.separator"); //recupero el separador ex: Windows= '\' , Linux='/'
+        to = to + separator + "src" + separator + "src" + separator + "data.txt"; // concateno la ruta destino
+        String ruta = to;
         File archivo = new File(ruta);
         BufferedWriter bw;
         if (archivo.exists()) {
@@ -138,15 +143,23 @@ public class Familia {
         Icon ir = null;
 
         try {
-//
+            String to = System.getProperty("user.dir"); // recupero el directorio del proyecto
+            String separator = System.getProperty("file.separator"); //recupero el separador ex: Windows= '\' , Linux='/'
+//            String imgname = "";
+//            String[] split;
+//            split = file.getAbsolutePath().split(separator + separator);
+//            imgname = split[split.length - 1];// recupero el nombre de la imagen
+            to = to + separator + "src" + separator + "src" + separator; // concateno la ruta destino
+//            Path FROM = Paths.get(file.getAbsolutePath());
+//            Path TO = Paths.get(to);
 //path del dot.exe,por lo general es la misma, pero depende de donde hayas instalado el paquete de Graphviz
             String dotPath = "C:\\Program Files (x86)\\Graphviz2.38\\bin\\dot.exe";
 //path del archivo creado con el codigo del graphviz que queremos
-            String fileInputPath = "C:\\Users\\ArmandoPC\\Documents\\NetBeansProjects\\arbol-N-arios\\data.txt ";
+            String fileInputPath = to + separator + "data.txt";
 
 //path de salida del grafo, es decir el path de la imagen que vamos a crear con graphviz
 //            String fileOutputPath = getClass().getResource("/recurso/arbol.png").toString();
-            String fileOutputPath = "C:\\Users\\ArmandoPC\\Documents\\NetBeansProjects\\arbol.png";
+            String fileOutputPath = to + separator + "201410251853.png";
 
 //tipo de imagen de salida, en este caso es jpg
             String tParam = "-Tpng";
