@@ -1,3 +1,5 @@
+package model;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -58,24 +60,24 @@ public class Run {
         // TODO code application logic here
         Familia a = new Familia();
         Persona raiz = new Persona("Armando");
-//        raiz.addHijo(new Persona("Yuri"));
-        a.addHijoRecursivo(raiz, "Yuri", "Armando");
-        a.addHijoRecursivo(raiz, "Yuri 1", "Armando");
-        a.addHijoRecursivo(raiz, "Yuri 1.1", "Yuri 1");
-        a.addHijoRecursivo(raiz, "Yuri 1.1.1", "Yuri 1.1");
-        a.addHijoRecursivo(raiz, "Yuri 2", "Armando");
-        a.addHijoRecursivo(raiz, "Yuri 3", "Armando");
-        a.addHijoRecursivo(raiz, "Yuri 4", "Armando");
-        a.addHijoRecursivo(raiz, "Yuri 5", "Armando");
-        a.addHijoRecursivo(raiz, "Yuri 6", "Armando");
-        a.addHijoRecursivo(raiz, "Yuri 7", "Armando");
-        a.addHijoRecursivo(raiz, "Yuri 8", "Armando");
-        a.addHijoRecursivo(raiz, "Yuri 2.1", "Yuri 2");
-        a.addHijoRecursivo(raiz, "Yuri 2.1.1", "Yuri 2.1");
-        a.addHijoRecursivo(raiz, "Yuri 2.2", "Yuri 2");
-        a.addHijoRecursivo(raiz, "Yuri 2.2.1", "Yuri 2.2");
-        a.addHijoRecursivo(raiz, "Yuri 2.2.2", "Yuri 2.2");
-        System.out.println(a.generateFileData(raiz));
+////        raiz.addHijo(new Persona("Yuri"));
+//        a.addHijoRecursivo(raiz, "Yuri", "Armando");
+//        a.addHijoRecursivo(raiz, "Yuri 1", "Armando");
+//        a.addHijoRecursivo(raiz, "Yuri 1.1", "Yuri 1");
+//        a.addHijoRecursivo(raiz, "Yuri 1.1.1", "Yuri 1.1");
+//        a.addHijoRecursivo(raiz, "Yuri 2", "Armando");
+//        a.addHijoRecursivo(raiz, "Yuri 3", "Armando");
+//        a.addHijoRecursivo(raiz, "Yuri 4", "Armando");
+//        a.addHijoRecursivo(raiz, "Yuri 5", "Armando");
+//        a.addHijoRecursivo(raiz, "Yuri 6", "Armando");
+//        a.addHijoRecursivo(raiz, "Yuri 7", "Armando");
+//        a.addHijoRecursivo(raiz, "Yuri 8", "Armando");
+//        a.addHijoRecursivo(raiz, "Yuri 2.1", "Yuri 2");
+//        a.addHijoRecursivo(raiz, "Yuri 2.1.1", "Yuri 2.1");
+//        a.addHijoRecursivo(raiz, "Yuri 2.2", "Yuri 2");
+//        a.addHijoRecursivo(raiz, "Yuri 2.2.1", "Yuri 2.2");
+//        a.addHijoRecursivo(raiz, "Yuri 2.2.2", "Yuri 2.2");
+//        System.out.println(a.generateFileData(raiz));
 
 //        String json = a.toString(raiz);
 //        json = json.replaceAll("},]", "}]");

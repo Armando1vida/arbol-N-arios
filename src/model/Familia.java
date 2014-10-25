@@ -1,3 +1,5 @@
+package model;
+
 import java.awt.image.BufferedImage;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -55,8 +57,8 @@ public class Familia {
         return this.raiz;
     }
 
-    public void addHijoRecursivo(Persona raiz, String nombre_hijo, String nombre_padre) {
-        Persona hijo = new Persona(nombre_hijo);
+    public void addHijoRecursivo(Persona raiz, String nombre_hijo, String foto, String nombre_padre) {
+        Persona hijo = new Persona(nombre_hijo, foto);
         if (raiz.getNombre().equals(nombre_padre)) {
 
             raiz.addHijo(hijo);
@@ -75,7 +77,7 @@ public class Familia {
                         cambio = "";
                     }
                 } else {
-                    addHijoRecursivo(raiz.getHijos().get(i), nombre_hijo, nombre_padre);
+                    addHijoRecursivo(raiz.getHijos().get(i), nombre_hijo, foto, nombre_padre);
                 }
             }
         }
@@ -100,6 +102,7 @@ public class Familia {
         r = r + raiz.verInfo(raiz) + "\n";
         r = r + raiz.verTransicion(raiz) + "\n";
         r = r + "\n}";
+        System.out.println(r);
         return r;
     }
 
@@ -179,44 +182,4 @@ public class Familia {
         return ir;
 
     }
-//    public Boolean GenerateImg() {
-//        try {
-////
-////path del dot.exe,por lo general es la misma, pero depende de donde hayas instalado el paquete de Graphviz
-//            String dotPath = "C:\\Program Files (x86)\\Graphviz2.38\\bin\\dot.exe";
-////path del archivo creado con el codigo del graphviz que queremos
-//            String fileInputPath = "C:\\Users\\ArmandoPC\\Documents\\NetBeansProjects\\arbol-N-arios\\data.txt ";
-//
-////path de salida del grafo, es decir el path de la imagen que vamos a crear con graphviz
-////            String fileOutputPath = getClass().getResource("/recurso/arbol.png").toString();
-//            String fileOutputPath = "C:\\Users\\ArmandoPC\\Documents\\NetBeansProjects\\arbol.png";
-//
-////tipo de imagen de salida, en este caso es jpg
-//            String tParam = "-Tpng";
-//
-//            String tOParam = "-o";
-//
-////concatenamos nuestras direcciones. Lo que hice es crear un vector, para poder editar las direcciones de entrada y salida, usando las variables antes inicializadas
-////recordemos el comando en la consola de windows: C:\Archivos de programa\Graphviz 2.21\bin\dot.exe -Tjpg grafo1.txt -o grafo1.jpg Esto es lo que concatenamos en el vector siguiente:
-//            String[] cmd = new String[5];
-//            cmd[0] = dotPath;
-//            cmd[1] = tParam;
-//            cmd[2] = fileInputPath;
-//            cmd[3] = tOParam;
-//            cmd[4] = fileOutputPath;
-//
-////Invocamos nuestra clase 
-//            Runtime rt = Runtime.getRuntime();
-//
-////Ahora ejecutamos como lo hacemos en consola
-//            rt.exec(cmd);
-//
-//            return true;
-//
-//        } catch (Exception ex) {
-//            ex.printStackTrace();
-//            return false;
-//        } finally {
-//        }
-//    }
 }

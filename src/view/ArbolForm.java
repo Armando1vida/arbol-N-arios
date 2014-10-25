@@ -1,3 +1,5 @@
+package view;
+
 import com.sun.scenario.effect.impl.ImagePool;
 import java.awt.Image;
 import java.awt.Rectangle;
@@ -18,6 +20,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileFilter;
+import model.Familia;
+import model.Persona;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -33,6 +37,7 @@ public class ArbolForm extends javax.swing.JFrame {
     Familia arbol;
     File file = null;
     ImageIcon Imagen = new ImageIcon();
+    Path TO;
 
     /**
      * Creates new form ArbolForm
@@ -224,46 +229,58 @@ public class ArbolForm extends javax.swing.JFrame {
 
     private void btnAddHijoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddHijoActionPerformed
         // TODO add your handling code here:
-        String padre = this.comboboxPadre.getSelectedItem().toString();
-        String hijo = this.textHijo.getText();
-        if (hijo.length() > 0) {
-            arbol.addHijoRecursivo(arbol.getRaiz(), hijo, padre);
-            arbol.setListaPesona(new ArrayList<Persona>());
-            arbol.verHijosRecursivo(arbol.getRaiz());
-            this.LlenarCombo(arbol.getListaPesona());
-            this.textHijo.setText("");
-            try {
-                arbol.generarArchivo(arbol.generateFileData(arbol.getRaiz()));
-                this.label.setIcon(arbol.GenerateImg());
-            } catch (IOException ex) {
-                Logger.getLogger(ArbolForm.class.getName()).log(Level.SEVERE, null, ex);
+        if (file != null) {
+
+            String padre = this.comboboxPadre.getSelectedItem().toString();
+            String hijo = this.textHijo.getText();
+            if (hijo.length() > 0) {
+                arbol.addHijoRecursivo(arbol.getRaiz(), hijo, TO.toString(), padre);
+                arbol.setListaPesona(new ArrayList<Persona>());
+                arbol.verHijosRecursivo(arbol.getRaiz());
+                this.LlenarCombo(arbol.getListaPesona());
+                this.textHijo.setText("");
+                try {
+                    arbol.generarArchivo(arbol.generateFileData(arbol.getRaiz()));
+                    this.label.setIcon(arbol.GenerateImg());
+                } catch (IOException ex) {
+                    Logger.getLogger(ArbolForm.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else {
+                JOptionPane.showMessageDialog(this.getRootPane(), "Error al ingresar raiz");
+
             }
         } else {
-            JOptionPane.showMessageDialog(this.getRootPane(), "Error al ingresar raiz");
-
+            JOptionPane.showMessageDialog(null, "Elija una imagen");
         }
 
     }//GEN-LAST:event_btnAddHijoActionPerformed
 
     private void btnAddRaizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddRaizActionPerformed
         // TODO add your handling code here:
-        String raiz = JOptionPane.showInputDialog(this.getRootPane(), "Ingrese Raiz");
-        if (raiz.length() > 0) {
-            arbol.setRaiz(new Persona(raiz));
-            this.btnAddHijo.setEnabled(true);
-            this.btnAddRaiz.setEnabled(false);
-            this.comboboxPadre.setEnabled(true);
-            this.textHijo.setEnabled(true);
-            arbol.verHijosRecursivo(arbol.getRaiz());
-            this.LlenarCombo(arbol.getListaPesona());
-            try {
-                arbol.generarArchivo(arbol.generateFileData(arbol.getRaiz()));
-                this.label.setIcon(arbol.GenerateImg());
-            } catch (IOException ex) {
-                Logger.getLogger(ArbolForm.class.getName()).log(Level.SEVERE, null, ex);
+        if (file != null) {
+            String raiz = JOptionPane.showInputDialog(this.getRootPane(), "Ingrese Raiz");
+            if (raiz.length() > 0) {
+                System.out.println(TO.toString());
+                arbol.setRaiz(new Persona(raiz, TO.toString()));
+                this.btnAddHijo.setEnabled(true);
+                this.btnAddRaiz.setEnabled(false);
+                this.comboboxPadre.setEnabled(true);
+                this.textHijo.setEnabled(true);
+                arbol.verHijosRecursivo(arbol.getRaiz());
+                this.LlenarCombo(arbol.getListaPesona());
+                try {
+                    arbol.generarArchivo(arbol.generateFileData(arbol.getRaiz()));
+                    this.label.setIcon(arbol.GenerateImg());
+
+                } catch (IOException ex) {
+                    Logger.getLogger(ArbolForm.class
+                            .getName()).log(Level.SEVERE, null, ex);
+                }
+            } else {
+                JOptionPane.showMessageDialog(this.getRootPane(), "Error al ingresar raiz");
             }
         } else {
-            JOptionPane.showMessageDialog(this.getRootPane(), "Error al ingresar raiz");
+            JOptionPane.showMessageDialog(null, "Elija una imagen");
         }
     }//GEN-LAST:event_btnAddRaizActionPerformed
 
@@ -304,7 +321,7 @@ public class ArbolForm extends javax.swing.JFrame {
             imgname = split[split.length - 1];// recupero el nombre de la imagen
             to = to + separator + "src" + separator + "src" + separator + imgname; // concateno la ruta destino
             Path FROM = Paths.get(file.getAbsolutePath());
-            Path TO = Paths.get(to);
+            TO = Paths.get(to);
             //sobreescribir el fichero de destino, si existe, y copiar
             // los atributos, incluyendo los permisos rwx
             CopyOption[] options = new CopyOption[]{
@@ -320,8 +337,10 @@ public class ArbolForm extends javax.swing.JFrame {
                 // Converting the image back to ImageIcon to make it acceptable by picLabel
                 image = new ImageIcon(scaledImage);
                 this.contenImg.setIcon(image);
+
             } catch (IOException ex) {
-                Logger.getLogger(ArbolForm.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(ArbolForm.class
+                        .getName()).log(Level.SEVERE, null, ex);
             }
 
         } else {
@@ -349,16 +368,21 @@ public class ArbolForm extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ArbolForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ArbolForm.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ArbolForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ArbolForm.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ArbolForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ArbolForm.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ArbolForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ArbolForm.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
