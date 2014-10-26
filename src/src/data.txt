@@ -1,13 +1,19 @@
 digraph structs {
 
-struct15730 [margin=0 shape=box, style=filled, fillcolor=white, color=blue, label=<<TABLE border="0" cellborder="0"><TR><TD width="60" height="50" fixedsize="true"><IMG SRC="C:\Users\ArmandoPC\Documents\NetBeansProjects\arbol-N-arios\src\src\IMG_04102014_123439.png" scale="true"/></TD><td><font point-size="10">Armando</font></td></TR></TABLE>>];
-struct25606 [margin=0 shape=box, style=filled, fillcolor=white, color=blue, label=<<TABLE border="0" cellborder="0"><TR><TD width="60" height="50" fixedsize="true"><IMG SRC="C:\Users\ArmandoPC\Documents\NetBeansProjects\arbol-N-arios\src\src\IMG_04102014_123439.png" scale="true"/></TD><td><font point-size="10">HHH</font></td></TR></TABLE>>];
-struct20505 [margin=0 shape=box, style=filled, fillcolor=white, color=blue, label=<<TABLE border="0" cellborder="0"><TR><TD width="60" height="50" fixedsize="true"><IMG SRC="C:\Users\ArmandoPC\Documents\NetBeansProjects\arbol-N-arios\src\src\Captura de pantalla 2014-09-11 20.22.53.png" scale="true"/></TD><td><font point-size="10">JUan</font></td></TR></TABLE>>];
-struct65320 [margin=0 shape=box, style=filled, fillcolor=white, color=blue, label=<<TABLE border="0" cellborder="0"><TR><TD width="60" height="50" fixedsize="true"><IMG SRC="C:\Users\ArmandoPC\Documents\NetBeansProjects\arbol-N-arios\src\src\IMG_04102014_123439.png" scale="true"/></TD><td><font point-size="10">JJJ</font></td></TR></TABLE>>];
+structstructstruct15908 [margin=0 shape=box, style=filled, fillcolor=white, color=blue, label=<<TABLE border="0" cellborder="0"><TR><TD width="60" height="50" fixedsize="true"><IMG SRC="C:\Users\ArmandoPC\Documents\NetBeansProjects\arbol-N-arios\src\src\Captura de pantalla 2014-09-11 20.22.53.png" scale="true"/></TD><td><font point-size="10">Armando</font></td></TR></TABLE>>];
+structstructstruct95540 [margin=0 shape=box, style=filled, fillcolor=white, color=blue, label=<<TABLE border="0" cellborder="0"><TR><TD width="60" height="50" fixedsize="true"><IMG SRC="C:\Users\ArmandoPC\Documents\NetBeansProjects\arbol-N-arios\src\src\IMG_04102014_123439.png" scale="true"/></TD><td><font point-size="10">Hola</font></td></TR></TABLE>>];
+struct844 [margin=0 shape=box, style=filled, fillcolor=white, color=blue, label=<<TABLE border="0" cellborder="0"><TR><TD width="60" height="50" fixedsize="true"><IMG SRC="C:\Users\ArmandoPC\Documents\NetBeansProjects\arbol-N-arios\src\src\Captura de pantalla 2014-09-11 20.22.53.png" scale="true"/></TD><td><font point-size="10">Holaa</font></td></TR></TABLE>>];
+structstruct22973 [margin=0 shape=box, style=filled, fillcolor=white, color=blue, label=<<TABLE border="0" cellborder="0"><TR><TD width="60" height="50" fixedsize="true"><IMG SRC="C:\Users\ArmandoPC\Documents\NetBeansProjects\arbol-N-arios\src\src\IMG_04102014_123439.png" scale="true"/></TD><td><font point-size="10">Yuri</font></td></TR></TABLE>>];
+structstruct43131 [margin=0 shape=box, style=filled, fillcolor=white, color=blue, label=<<TABLE border="0" cellborder="0"><TR><TD width="60" height="50" fixedsize="true"><IMG SRC="C:\Users\ArmandoPC\Documents\NetBeansProjects\arbol-N-arios\src\src\IMG_04102014_123439.png" scale="true"/></TD><td><font point-size="10">Yuri1</font></td></TR></TABLE>>];
+structstruct41036 [margin=0 shape=box, style=filled, fillcolor=white, color=blue, label=<<TABLE border="0" cellborder="0"><TR><TD width="60" height="50" fixedsize="true"><IMG SRC="C:\Users\ArmandoPC\Documents\NetBeansProjects\arbol-N-arios\src\src\IMG_04102014_123439.png" scale="true"/></TD><td><font point-size="10">Yuri</font></td></TR></TABLE>>];
+structstruct22756 [margin=0 shape=box, style=filled, fillcolor=white, color=blue, label=<<TABLE border="0" cellborder="0"><TR><TD width="60" height="50" fixedsize="true"><IMG SRC="C:\Users\ArmandoPC\Documents\NetBeansProjects\arbol-N-arios\src\src\IMG_04102014_123439.png" scale="true"/></TD><td><font point-size="10">Yuri1</font></td></TR></TABLE>>];
 
-struct15730 -> struct25606 ;
-struct25606 -> struct20505 ;
-struct25606 -> struct65320 ;
+structstructstruct15908 -> structstructstruct95540 ;
+structstructstruct95540 -> struct844 ;
+structstructstruct15908 -> structstruct22973 ;
+structstruct22973 -> structstruct43131 ;
+structstructstruct15908 -> structstruct41036 ;
+structstruct41036 -> structstruct22756 ;
 
 
 }

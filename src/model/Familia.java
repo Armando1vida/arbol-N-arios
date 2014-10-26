@@ -84,8 +84,7 @@ public class Familia {
     }
 
     public void verHijosRecursivo(Persona raiz) {
-        getListaPesona().add(raiz);
-//        System.out.println(raiz.getNombre());
+        this.getListaPesona().add(raiz);
         for (Persona hijo : raiz.getHijos()) {
             verHijosRecursivo(hijo);
         }

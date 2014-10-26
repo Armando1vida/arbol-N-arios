@@ -44,9 +44,26 @@ public class ArbolForm extends javax.swing.JFrame {
     public ArbolForm() {
         arbol = new Familia();
         initComponents();
-        this.btnAddHijo.setEnabled(false);
-        this.comboboxPadre.setEnabled(false);
-        this.textHijo.setEnabled(false);
+        this.btnAddRaiz.setVisible(false);
+        String to = System.getProperty("user.dir"); // recupero el directorio del proyecto
+        String separator = System.getProperty("file.separator"); //recupero el separador ex: Windows= '\' , Linux='/'
+        to = to + separator + "src" + separator + "src" + separator + "dataarbol.xml"; // concateno la ruta destino
+        File f = new File(to);
+        if (f.exists()) {
+            Persona leernodo = se.ReadXml();
+            arbol.setRaiz(leernodo);
+            this.label.setIcon(arbol.GenerateImg());
+            arbol.verHijosRecursivo(arbol.getRaiz());
+            this.LlenarCombo(arbol.getListaPesona());
+
+        } else {
+            this.btnAddHijo.setEnabled(false);
+            this.comboboxPadre.setEnabled(false);
+            this.textHijo.setEnabled(false);
+            this.btnAddRaiz.setVisible(true);
+
+        }
+
     }
 
     /**
@@ -245,7 +262,7 @@ public class ArbolForm extends javax.swing.JFrame {
                     Logger.getLogger(ArbolForm.class.getName()).log(Level.SEVERE, null, ex);
                 }
             } else {
-                JOptionPane.showMessageDialog(this.getRootPane(), "Error al ingresar raiz");
+                JOptionPane.showMessageDialog(this.getRootPane(), "Ingrese nombre de hijo");
 
             }
         } else {
@@ -266,10 +283,12 @@ public class ArbolForm extends javax.swing.JFrame {
                 this.comboboxPadre.setEnabled(true);
                 this.textHijo.setEnabled(true);
                 arbol.verHijosRecursivo(arbol.getRaiz());
+                this.btnAddRaiz.setVisible(false);
                 this.LlenarCombo(arbol.getListaPesona());
                 try {
                     arbol.generarArchivo(arbol.generateFileData(arbol.getRaiz()));
                     this.label.setIcon(arbol.GenerateImg());
+
                     se.writeXml(arbol.getRaiz());
                 } catch (IOException ex) {
                     Logger.getLogger(ArbolForm.class
