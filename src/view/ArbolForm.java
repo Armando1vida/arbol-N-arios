@@ -22,6 +22,7 @@ import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileFilter;
 import model.Familia;
 import model.Persona;
+import model.Serialize;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -38,6 +39,7 @@ public class ArbolForm extends javax.swing.JFrame {
     File file = null;
     ImageIcon Imagen = new ImageIcon();
     Path TO;
+    Serialize se = new Serialize();
 
     /**
      * Creates new form ArbolForm
@@ -242,6 +244,7 @@ public class ArbolForm extends javax.swing.JFrame {
                 try {
                     arbol.generarArchivo(arbol.generateFileData(arbol.getRaiz()));
                     this.label.setIcon(arbol.GenerateImg());
+                    se.writeXml(arbol.getRaiz());
                 } catch (IOException ex) {
                     Logger.getLogger(ArbolForm.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -271,7 +274,7 @@ public class ArbolForm extends javax.swing.JFrame {
                 try {
                     arbol.generarArchivo(arbol.generateFileData(arbol.getRaiz()));
                     this.label.setIcon(arbol.GenerateImg());
-
+                    se.writeXml(arbol.getRaiz());
                 } catch (IOException ex) {
                     Logger.getLogger(ArbolForm.class
                             .getName()).log(Level.SEVERE, null, ex);

@@ -58,8 +58,8 @@ public class Run {
 //        } finally {
 //        }
         // TODO code application logic here
-        Familia a = new Familia();
-        Persona raiz = new Persona("Armando");
+//        Familia a = new Familia();
+//        Persona raiz = new Persona("Armando");
 ////        raiz.addHijo(new Persona("Yuri"));
 //        a.addHijoRecursivo(raiz, "Yuri", "Armando");
 //        a.addHijoRecursivo(raiz, "Yuri 1", "Armando");

@@ -64,12 +64,14 @@ public class Persona {
         toViewTrans = aToViewTrans;
     }
 
-    public Persona(String nombre) {
-        this.hijos = new ArrayList<>();
-        this.nombre = nombre;
-        Random r = new Random();
-        int valorDado = r.nextInt(100000) + 1;
-        this.ID = valorDado + "";
+//    public Persona(String nombre) {
+//        this.hijos = new ArrayList<>();
+//        this.nombre = nombre;
+//        Random r = new Random();
+//        int valorDado = r.nextInt(100000) + 1;
+//        this.ID = valorDado + "";
+//    }
+    public Persona() {
     }
 
     public Persona(String nombre, String pahtImg) {
@@ -176,5 +178,4 @@ public class Persona {
     public String toString() {
         return this.getNombre(); //To change body of generated methods, choose Tools | Templates.
     }
-
 }

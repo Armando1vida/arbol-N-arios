@@ -104,7 +104,6 @@ public class Familia {
         r = r + raiz.verInfo(raiz) + "\n";
         r = r + raiz.verTransicion(raiz) + "\n";
         r = r + "\n}";
-        System.out.println(r);
         return r;
     }
 

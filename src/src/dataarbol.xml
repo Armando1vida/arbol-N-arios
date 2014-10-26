@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.8.0_11" class="java.beans.XMLDecoder">
+    <object class="model.Persona">
+        <void property="ID">
+            <string>struct15730</string>
+        </void>
+        <void property="foto">
+            <string>C:\Users\ArmandoPC\Documents\NetBeansProjects\arbol-N-arios\src\src\IMG_04102014_123439.png</string>
+        </void>
+        <void property="hijos">
+            <object class="java.util.ArrayList">
+                <void method="add">
+                    <object class="model.Persona">
+                        <void property="ID">
+                            <string>struct25606</string>
+                        </void>
+                        <void property="foto">
+                            <string>C:\Users\ArmandoPC\Documents\NetBeansProjects\arbol-N-arios\src\src\IMG_04102014_123439.png</string>
+                        </void>
+                        <void property="hijos">
+                            <object class="java.util.ArrayList">
+                                <void method="add">
+                                    <object class="model.Persona">
+                                        <void property="ID">
+                                            <string>struct20505</string>
+                                        </void>
+                                        <void property="foto">
+                                            <string>C:\Users\ArmandoPC\Documents\NetBeansProjects\arbol-N-arios\src\src\Captura de pantalla 2014-09-11 20.22.53.png</string>
+                                        </void>
+                                        <void property="hijos">
+                                            <object class="java.util.ArrayList"/>
+                                        </void>
+                                        <void property="nombre">
+                                            <string>JUan</string>
+                                        </void>
+                                    </object>
+                                </void>
+                                <void method="add">
+                                    <object class="model.Persona">
+                                        <void property="ID">
+                                            <string>struct65320</string>
+                                        </void>
+                                        <void property="foto">
+                                            <string>C:\Users\ArmandoPC\Documents\NetBeansProjects\arbol-N-arios\src\src\IMG_04102014_123439.png</string>
+                                        </void>
+                                        <void property="hijos">
+                                            <object class="java.util.ArrayList"/>
+                                        </void>
+                                        <void property="nombre">
+                                            <string>JJJ</string>
+                                        </void>
+                                    </object>
+                                </void>
+                            </object>
+                        </void>
+                        <void property="nombre">
+                            <string>HHH</string>
+                        </void>
+                    </object>
+                </void>
+            </object>
+        </void>
+        <void property="nombre">
+            <string>Armando</string>
+        </void>
+    </object>
+</java>
