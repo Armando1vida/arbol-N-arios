@@ -1,9 +1,7 @@
 package view;
 
-import com.sun.scenario.effect.impl.ImagePool;
 import java.awt.Image;
 import java.awt.Rectangle;
-import java.awt.image.ImageProducer;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.CopyOption;
@@ -15,7 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -232,7 +229,6 @@ public class ArbolForm extends javax.swing.JFrame {
     private void btnAddHijoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddHijoActionPerformed
         // TODO add your handling code here:
         if (file != null) {
-
             String padre = this.comboboxPadre.getSelectedItem().toString();
             String hijo = this.textHijo.getText();
             if (hijo.length() > 0) {
