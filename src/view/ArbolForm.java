@@ -90,6 +90,7 @@ public class ArbolForm extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         panelImagen.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
