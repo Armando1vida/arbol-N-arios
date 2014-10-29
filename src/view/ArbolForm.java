@@ -93,6 +93,8 @@ public class ArbolForm extends javax.swing.JFrame {
 
         panelImagen.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        label.setBorder(javax.swing.BorderFactory.createTitledBorder("Arbol"));
+
         javax.swing.GroupLayout panelImagenLayout = new javax.swing.GroupLayout(panelImagen);
         panelImagen.setLayout(panelImagenLayout);
         panelImagenLayout.setHorizontalGroup(
